@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background04.jpg');
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            max-width: 400px;
+            
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="button"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Login</title>
+</head>
+<body>
+
+<form id="loginForm" onsubmit="return validateLogin()">
+    <label for="loginUsername">User Name:</label>
+    <input type="text" id="loginUsername" name="loginUsername" required>
+
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" name="loginPassword" required>
+
+    <input type="submit" value="Login">
+    <input type="button" value="Sign Up" onclick="redirectToSignUp()">
+</form>
+
+<script>
+    function validateLogin() {
+        // Example: Send a request to the server for authentication
+        var enteredUsername = document.getElementById("loginUsername").value;
+        var enteredPassword = document.getElementById("loginPassword").value;
+
+        // Replace this with actual authentication logic on the server side
+        // In a real-world scenario, this would involve a server-side language like PHP, Node.js, etc.
+        // For simplicity, this example uses a hardcoded check
+        if (enteredUsername === "exampleUser" && enteredPassword === "examplePassword") {
+            // Redirect to the home page with a welcome message
+            window.location.href = "home.html?username=" + encodeURIComponent(enteredUsername);
+        } else {
+            alert("Invalid username or password");
+            return false;
+        }
+    }
+
+    function redirectToSignUp() {
+        // Redirect to the sign-up page
+        window.location.href = "signup.html";
+    }
+</script>
+
+</body>
+</html>

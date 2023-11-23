@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background04.jpg');
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Sign Up</title>
+</head>
+<body>
+
+<form id="signupForm" onsubmit="return validateSignup()">
+    <label for="signupUsername">User Name:</label>
+    <input type="text" id="signupUsername" name="signupUsername" required>
+
+    <label for="signupPhoneNumber">Phone Number:</label>
+    <input type="tel" id="signupPhoneNumber" name="signupPhoneNumber" pattern="[0-9]{10}" required>
+
+    <label for="signupAddress">Address:</label>
+    <input type="text" id="signupAddress" name="signupAddress" required>
+
+    <label for="signupCategory">Category:</label>
+    <select id="signupCategory" name="signupCategory" required>
+        <option value="customer">Customer</option>
+        <option value="serviceProvider">Service Provider</option>
+        <option value="productSeller">Product Seller</option>
+    </select>
+
+    <label for="signupEmail">Email:</label>
+    <input type="email" id="signupEmail" name="signupEmail" required>
+
+    <label for="signupPassword">Password:</label>
+    <input type="password" id="signupPassword" name="signupPassword" required>
+
+    <label for="signupConfirmPassword">Confirm Password:</label>
+    <input type="password" id="signupConfirmPassword" name="signupConfirmPassword" required>
+
+    <input type="submit" value="Sign Up">
+    <input type="reset" value="Reset">
+</form>
+
+<script>
+    function validateSignup() {
+        var password = document.getElementById("signupPassword").value;
+        var confirmPassword = document.getElementById("signupConfirmPassword").value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return false;
+        }
+
+        // Additional validation logic can be added here
+
+        // Redirect to the home page with a welcome message
+        var enteredUsername = document.getElementById("signupUsername").value;
+        window.location.href = "account.html?username=" + encodeURIComponent(enteredUsername);
+
+        return true;
+    }
+</script>
+
+</body>
+</html>
