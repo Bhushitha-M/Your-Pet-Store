@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  margin-right:20%;
+  padding-right:10
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.item {
+  border: 7px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  padding-left:40%;
+  height: auto;
+}
+
+button {
+
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  align: center;
+  cursor: pointer;
+}
+
+.cart {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.cart h2 {
+  border-bottom: 1px solid #ddd;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
